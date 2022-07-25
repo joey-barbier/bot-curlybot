@@ -3,7 +3,10 @@
 require('cypress-xpath');
 
 describe('Login Linkedin', () => {
-    const url = 'https://www.linkedin.com/search/results/people/?geoUrn=%5B%22105015875%22%5D&keywords=manager%20mobile&origin=FACETED_SEARCH&page=19&sid=X3t';
+    
+    // edit this URL with your request :
+    const url = 'https://www.linkedin.com/search/results/people/?geoUrn=%5B%22105015875%22%5D&keywords=Responsable%20mobile%20iOS&origin=FACETED_SEARCH&sid=X3t';
+    
     const xpathFirstButton = "(//main//button[contains(@aria-label,'à rejoindre votre réseau')])";
     const xpathPreConfirmButton = "//button[@aria-label='Other']";
     const xpathPreConfirmValidButton = "//button[@aria-label='Se connecter']";
