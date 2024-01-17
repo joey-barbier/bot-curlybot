@@ -11,16 +11,22 @@ describe('Login Linkedin', () => {
     const xpathPreConfirmButton = "//button[@aria-label='Other']";
     const xpathPreConfirmValidButton = "//button[@aria-label='Se connecter']";
     const xpathConfirmButton = "//div[@id='artdeco-modal-outlet']//button[@aria-label='Envoyer maintenant']";
+    const xpathInMailOptin = "//div[@role='dialog']//button[@aria-label='OK']";
 
     let indexSelectButton = 1;
 
     it('search button add', () => {
         cy.setCookies().then(() => {
             cy.visit(url).then(async () => {
+                await checkUserIsLogged();
                 await scrollToBottom();
             });
         })
     })
+
+    async function checkUserIsLogged() {
+        cy.get('button[aria-label="S’identifier"]').should('not.exist');
+    }
 
     async function scrollToBottom() {
         console.log("wait start");
@@ -68,7 +74,15 @@ describe('Login Linkedin', () => {
                         }
                         await cy.xpath(xpathConfirmButton).click()
                         cy.wait(2000);
-                        await scrap();
+                        await cy.xpath("boolean(" + xpathInMailOptin + ")", {
+                            timeout: 5000
+                        }).then(async (isPresent) => {
+                            if (isPresent) {
+                                await cy.xpath(xpathInMailOptin).click()
+                                cy.wait(2000);
+                            }
+                            await scrap();
+                        });
                     });
                     return;
                 }

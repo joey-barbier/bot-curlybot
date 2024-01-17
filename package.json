@@ -14,7 +14,7 @@
   },
   "homepage": "https://gitlab.com/orka-tools/curlybot#readme",
   "dependencies": {
-    "cypress": "^10.3.0",
+    "cypress": "^13.6.2",
     "cypress-xpath": "^2.0.0"
   }
 }
