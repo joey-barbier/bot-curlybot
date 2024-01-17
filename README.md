@@ -1,48 +1,41 @@
 # CurlyBot
 
+## Introduction
 
-## Introduction.
+To send contact requests on LinkedIn.
 
-Pour envoyer des demandes de contact sur LinkedIn.
+## Installation
 
-## Installation.
-
-Installation des packages :
+Installation of packages:
 
 - `yarn install`
 
+## Retrieving Session Cookies
 
-## Récupération des cookies de session.
+Once logged in on LinkedIn, you can retrieve your session cookies using a Chrome extension, for example, EditThisCookie (https://www.editthiscookie.com/).
+Once done, you just need to put the cookies in the file: `./cookies/linkedin.json`.
 
-Une fois connecté sur LinkedIn vous pouvez récupérer vos cookies de séssion grâce à une extension Chrome par exemple EditThisCookie (https://www.editthiscookie.com/).
+## Search URL
 
-Une fois fait, il vous suffit de mettre les cookies dans le fichier: `./cookies/linkedin.json`.
-Pour ensuite supprimer les cookies ayant comme valeur `unspecified` sur la clé `sameSite`.
+Go to LinkedIn, then perform your search, for example "iOS Lead Tech" once on the search page.
+Click on "people" then you can add your constraints, for example, the country...
 
+Your URL will start with: https://www.linkedin.com/search/results/people/...
+For example: https://www.linkedin.com/search/results/people/?geoUrn=%5B%22105015875%22%5D&keywords=Responsable%20mobile%20iOS&origin=FACETED_SEARCH&sid=X3t
 
-## URL de recherche.
+## Replacing the URL
 
-Aller sur LinkedIn, puis effectuez votre recherche par exemple "iOS Lead Tech" une fois sur la page de recherche.
-Cliquez sur "personnes" puis vous pouvez rajouter vos contraintes exemple, le pays ...
+Open the file: `cypress/e2e/linkedin/search.cy.js`
+You can replace `const url = '...'` with your search URL.
 
-Par exemple : https://www.linkedin.com/search/results/people/?geoUrn=%5B%22105015875%22%5D&keywords=Responsable%20mobile%20iOS&origin=FACETED_SEARCH&sid=X3t
+## Launching Cypress
 
+To launch Cypress, simply execute the command: `yarn run cypress open`
+(In case of an error, you must do beforehand: `npm install Cypress`)
 
-## Remplacer l'URL.
+A window opens, click on `E2E Testing`, Chrome must be selected then click on `Start E2E Testing in Chrome` (you can select another browser).
 
-Ouvrez le fichier  : `cypress/e2e/linkedin/search.cy.js`
-Vous pouvez remplacer `const url = '...'` par votre URL de recherche.
+Finally, you can launch the bot by clicking on `search.cy.js`
+Chrome launches and the bot starts.
 
-
-## Lancement de Cypress
-
-Pour lancer Cypress il suffit d'éxécuter la commande : `yarn run cypress open`
-(En cas d'erreur, il faut faire avant: `npm install Cypress`)
-
-Une fenetre s'ouvre, cliquez sur `E2E Testing`, Chrome doit être selectionné puis cliquez sur `Start E2E Testing in Chrome`.
-
-Vous pouvez lancer le bot en cliquant sur `search.cy.js`
-Chrome se lance et le bot démarre.
-
-
-🎉 ENJOY ! 
+🎉 ENJOY !
