@@ -17,7 +17,7 @@ Once done, you just need to put the cookies in the file: `./cookies/linkedin.jso
 
 ## Search URL
 
-Go to LinkedIn, then perform your search, for example "iOS Lead Tech" once on the search page.
+Go to LinkedIn (🚨🚨🚨 IN FRENCH ! 🚨🚨🚨), then perform your search, for example "iOS Lead Tech" once on the search page.
 Click on "people" then you can add your constraints, for example, the country...
 
 Your URL will start with: https://www.linkedin.com/search/results/people/...
