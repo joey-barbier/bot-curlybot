@@ -12,7 +12,7 @@ Cypress.Commands.add("setCookies", () => {
         console.log("Set cookies")
         console.log("Count of cookies : " + cookies.length)
         Cypress.$.each(cookies, function (_, cookie) {
-            if (cookie.sameSite === "unspecified") {
+            if (cookie.sameSite === "unspecified" || cookie.sameSite === null) {
                 cy.log("[ignored] Cookie: " + cookie.domain + " value: " + cookie.value)
                 return;
             }

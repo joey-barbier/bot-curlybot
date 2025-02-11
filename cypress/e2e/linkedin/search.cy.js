@@ -5,12 +5,12 @@ require('cypress-xpath');
 describe('Login Linkedin', () => {
     
     // edit this URL with your request :
-    const url = 'https://www.linkedin.com/search/results/people/?geoUrn=%5B%22105015875%22%5D&keywords=Responsable%20mobile%20iOS&origin=FACETED_SEARCH&sid=X3t';
+    const url = 'https://www.linkedin.com/search/results/people/?keywords=developpeur%20ios&origin=FACETED_SEARCH&profileLanguage=%5B%22fr%22%5D&searchId=2ceff8fc-bcb7-4789-995b-7c3dddab6e3d&sid=(H!';
     
     const xpathFirstButton = "(//main//button[contains(@aria-label,'à rejoindre votre réseau')])";
     const xpathPreConfirmButton = "//button[@aria-label='Other']";
     const xpathPreConfirmValidButton = "//button[@aria-label='Se connecter']";
-    const xpathConfirmButton = "//div[@id='artdeco-modal-outlet']//button[@aria-label='Envoyer maintenant']";
+    const xpathConfirmButton = "(//div[@id='artdeco-modal-outlet']//button)[last()]";
     const xpathInMailOptin = "//div[@role='dialog']//button[@aria-label='OK']";
 
     let indexSelectButton = 1;
